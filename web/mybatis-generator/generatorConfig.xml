@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2020. qixiangyang. All rights reserved.
+-->
+
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="mysqlgenerator" targetRuntime="MyBatis3">
+
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
+
+        <plugin type="com.itfsw.mybatis.generator.plugins.LimitPlugin">
+            <!-- 通过配置startPage影响Example中的page方法开始分页的页码，默认分页从0开始 -->
+            <property name="startPage" value="0"/>
+        </plugin>
+        <commentGenerator type="com.school.practice.market.mybatis.generator.MybatisCommentGenerator">
+            <property name="author" value="generator"/>
+            <property name="dateFormat" value="yyyy/MM/dd"/>
+        </commentGenerator>
+        <!--数据库连接信息-->
+        <jdbcConnection
+                connectionURL="jdbc:mysql://localhost:3306/market?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai"
+                driverClass="com.mysql.cj.jdbc.Driver"
+                password="123456"
+                userId="root"/>
+        <javaModelGenerator targetPackage="com.school.practice.market.mybatis.mapper.po"
+                            targetProject="src/main/java"/>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+        <javaClientGenerator targetPackage="com.school.practice.market.mybatis.mapper"
+                             targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+
+<!--        <table tableName="employee" domainObjectName="EmployeePO"-->
+<!--               enableCountByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--        </table>-->
+<!--        <table tableName="department" domainObjectName="DepartmentPO"-->
+<!--               enableCountByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--        </table>-->
+<!--        <table tableName="employee_sale_amount" domainObjectName="EmployeeSaleAmountPO"-->
+<!--               enableCountByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--        </table>-->
+<!--        <table tableName="employee_sale_info" domainObjectName="EmployeeSaleInfoPO"-->
+<!--               enableCountByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--        </table>-->
+<!--        <table tableName="discount_record" domainObjectName="DisCountRecordPO"-->
+<!--               enableCountByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--        </table>-->
+<!--        <table tableName="inventory" domainObjectName="InventoryPO"-->
+<!--               enableCountByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--        </table>-->
+<!--        <table tableName="manufacture" domainObjectName="ManufacturePO"-->
+<!--               enableCountByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--        </table>-->
+<!--        <table tableName="product" domainObjectName="ProductPO"-->
+<!--               enableCountByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--        </table>-->
+<!--        <table tableName="product_sale_details" domainObjectName="ProductSaleDetailsPO"-->
+<!--               enableCountByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--        </table>-->
+<!--        <table tableName="product_sale_record" domainObjectName="ProductSaleRecordPO"-->
+<!--               enableCountByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--        </table>-->
+<!--        <table tableName="purchase_record" domainObjectName="PurchaseRecordPO"-->
+<!--               enableCountByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--        </table>-->
+<!--        <table tableName="sale_details" domainObjectName="SaleDetailsPO"-->
+<!--               enableCountByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--        </table>-->
+<!--        <table tableName="supplier" domainObjectName="SupplierPO"-->
+<!--               enableCountByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--        </table>-->
+        <table tableName="vip_info" domainObjectName="VipInfoPO"
+               enableCountByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true"
+               selectByExampleQueryId="true">
+        </table>
+<!--        <table tableName="user_info" domainObjectName="UserInfoPO"-->
+<!--               enableCountByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--        </table>-->
+
+
+    </context>
+
+</generatorConfiguration>
