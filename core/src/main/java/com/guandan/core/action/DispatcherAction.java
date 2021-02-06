@@ -20,8 +20,9 @@ public class DispatcherAction {
 
 
     public Optional<BaseAction> createAction(int protocol) {
-        if (actionCache != null)
+        if (actionCache != null) {
             return Optional.of(actionCache.get(protocol));
+        }
         return Optional.empty();
     }
 
