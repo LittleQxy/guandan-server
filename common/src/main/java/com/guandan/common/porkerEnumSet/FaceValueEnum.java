@@ -1,5 +1,15 @@
 package com.guandan.common.porkerEnumSet;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+
+/**
+ * 扑克面值的枚举类，
+ */
+@AllArgsConstructor
+@Getter
 public enum FaceValueEnum {
 	FaceValueNum_Null(0, "异常"),
 	FaceValueEnum_2(2, "2"),
@@ -22,8 +32,8 @@ public enum FaceValueEnum {
 	// 数值
 	public static final int FACE_VALUE_NULL = 0;
 	
-	public static final int FACE_VALUE_SMALL_JORKER = 30;
-	public static final int FACE_VALUE_BIG_JORKER   = 40;
+	public static final int FACE_VALUE_SMALL_JORKER = 30;  	//小王
+	public static final int FACE_VALUE_BIG_JORKER   = 40;	//大王
 	
 	public static final int FACE_VALUE_2_VALUE = 2;
 	public static final int FACE_VALUE_3_VALUE = 3;
@@ -39,28 +49,21 @@ public enum FaceValueEnum {
 	public static final int FACE_VALUE_K_VALUE = 13;
 	public static final int FACE_VALUE_A_VALUE = 14;
 	
-	public static final int Greater_Result = 1;
-	public static final int Equal_Result   = 0;
-	public static final int Less_Result    = -1;
+	public static final int Greater_Result = 1;		//大于
+	public static final int Equal_Result   = 0;		//等于
+	public static final int Less_Result    = -1; 	//小于
 	
 	private final int value;
     private final String desc;
-    
-    private FaceValueEnum(int code, String desc) {
-        this.value = code;
-        this.desc = desc;
-    }
-    
-    public String getDesc() {
-        return desc;
-    }
-    
-   public final int getNumber() { 
-	   return value; 
-	}
-   
 
-   public static int compareTwoFaceValue(int nFaceValueOne, int nFaceValueTwo){
+
+	/**
+	 * 比较两个扑克面值的大小
+	 * @param nFaceValueOne
+	 * @param nFaceValueTwo
+	 * @return
+	 */
+	public static int compareTwoFaceValue(int nFaceValueOne, int nFaceValueTwo){
 		if(nFaceValueOne == nFaceValueTwo){
 			return Equal_Result;
 		}
@@ -93,7 +96,13 @@ public enum FaceValueEnum {
 	   
 	   return false;
    }
-   
+
+	/**
+	 * 是否是下一张类型
+	 * @param nPreCardType
+	 * @param nNextCardType
+	 * @return
+	 */
    public static boolean isNextCardType(int nPreCardType, int nNextCardType){
 		if(nPreCardType < FACE_VALUE_2_VALUE){
 			return false;
@@ -105,7 +114,12 @@ public enum FaceValueEnum {
 		
 		return false;
 	}
-	
+
+	/**
+	 * 获取当前扑克的下一张面值
+	 * @param nCardType
+	 * @return
+	 */
 	public static int getNextCardType(int nCardType){
 		if((nCardType >= FACE_VALUE_A_VALUE) || (nCardType < FACE_VALUE_2_VALUE)){
 			return 0;
@@ -114,7 +128,12 @@ public enum FaceValueEnum {
 		int nNextCardType = nCardType + 1;
 		return nNextCardType;
 	}
-	
+
+	/**
+	 * 获取当前扑克的后一张面值
+	 * @param nCardType
+	 * @return
+	 */
 	public static int getPreCardType(int nCardType){
 		if((nCardType > FACE_VALUE_A_VALUE) || (nCardType <= FACE_VALUE_2_VALUE)){
 			return 0;
@@ -123,15 +142,28 @@ public enum FaceValueEnum {
 		int nPreCardType = nCardType - 1;
 		return nPreCardType;
 	}
-	
+
+	/**
+	 * 最小的扑克面值
+	 * @return
+	 */
 	public static int getMinCardType(){
 		return FACE_VALUE_2_VALUE;
 	}
-	
+
+	/**
+	 * 最大的扑克面值
+	 * @return
+	 */
 	public static int getMaxCardType(){
 		return FACE_VALUE_A_VALUE;
 	}
-	
+
+	/**
+	 * 增加扑克大小
+	 * @param i
+	 * @return
+	 */
 	public static int incFaceValueEnum(int i){
 		if(FACE_VALUE_A_VALUE == i){
 			return FACE_VALUE_2_VALUE;
@@ -140,7 +172,13 @@ public enum FaceValueEnum {
 		int nIncFaceValueNum = i + 1;
 		return nIncFaceValueNum;
 	}
-	
+
+	/**
+	 * 添加扑克面值
+	 * @param i
+	 * @param nAddValue
+	 * @return
+	 */
 	public static int addFaceValueEnum(int i, int nAddValue){
 		if(FACE_VALUE_A_VALUE == i){
 			int nValue = FACE_VALUE_2_VALUE + (nAddValue - 1);
@@ -150,7 +188,12 @@ public enum FaceValueEnum {
 		int nResultValue = i + nAddValue;
 		return nResultValue;
 	}
-	
+
+	/**
+	 * 是否是小王
+	 * @param nFaceValue
+	 * @return
+	 */
 	public static boolean isBelongToSmallKing(int nFaceValue){
 		if(FACE_VALUE_SMALL_JORKER == nFaceValue){
 			return true;
@@ -158,7 +201,12 @@ public enum FaceValueEnum {
 		   
 		return false;
 	}
-	   
+
+	/**
+	 * 是否是大王
+	 * @param nFaceValue
+	 * @return
+	 */
 	public static boolean isBelongToBigKing(int nFaceValue){
 		if(FACE_VALUE_BIG_JORKER == nFaceValue){
 			return true;

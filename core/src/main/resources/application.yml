@@ -1,0 +1,9 @@
+hall:
+  routes:
+    1: hallserver
+    2: guandan
+  name: hallserver
+netty-websocket:
+  host: localhost
+  port: 8083
+  path: /hall

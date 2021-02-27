@@ -12,10 +12,10 @@ import lombok.Data;
 @Data
 public class Player {
     private GameWebSocketSession gameWebSocketSession;
-    public int chip;
-    private boolean isReady;
-    private String roomId;
-    private boolean isDisConnection;
+    public int chip;  //得分
+    private boolean isReady; //是否就绪
+    private String roomId;  //房间号
+    private boolean isDisConnection;  //断开连接
     private boolean isDisbanded;
 
     private boolean isOp;

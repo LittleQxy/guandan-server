@@ -1,5 +1,11 @@
 package com.guandan.common.porkerEnumSet;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public enum CardColorEnum {
 	CardColorEnum_Error(-1, "错误/异常"),
 	CardColorEnum_Null(0, "空颜色/大小王"),
@@ -18,17 +24,5 @@ public enum CardColorEnum {
 	
 	private final int value;
     private final String desc;
-    
-    private CardColorEnum(int code, String desc) {
-        this.value = code;
-        this.desc = desc;
-    }
-    
-    public int getValue(){
-		return this.value;
-	}
-	
-	public String getDesc(){
-		return this.desc;
-	}
+
 }

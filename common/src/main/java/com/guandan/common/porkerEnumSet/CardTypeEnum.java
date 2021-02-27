@@ -1,5 +1,11 @@
 package com.guandan.common.porkerEnumSet;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum CardTypeEnum {
 	CardTypeEnum_Null(0, "空"),
 	CardTypeEnum_OnePiece(1, "单跟"),
@@ -34,19 +40,7 @@ public enum CardTypeEnum {
 	
 	private int  value;
 	private String  desc;
-	
-	private CardTypeEnum(int nValueParam, String strDescParam){
-		this.value = nValueParam;
-		this.desc = strDescParam;
-	}
-	
-	public int getValue(){
-		return this.value;
-	}
-	
-	public String getDesc(){
-		return this.desc;
-	}
+
 	
 	public static int getMinCardType(){
 		return CARD_TYPE_ONE_PIECE_VALUE;
@@ -55,7 +49,12 @@ public enum CardTypeEnum {
 	public static int getMaxCardType(){
 		return CARD_TYPE_KING_OF_BOMB_VALUE;
 	}
-	
+
+	/**
+	 * 是否满足炸弹
+	 * @param nPorkerNum
+	 * @return
+	 */
 	public static boolean isStatisfyBomb(int nPorkerNum){
 		if(nPorkerNum < 4){
 			return false;

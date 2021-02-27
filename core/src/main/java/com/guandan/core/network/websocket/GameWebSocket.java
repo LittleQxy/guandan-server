@@ -7,6 +7,7 @@ import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.handler.timeout.IdleStateEvent;
 import io.netty.util.Attribute;
 import io.netty.util.AttributeKey;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Description:
  * @Date: 10:48 2020/1/08
  */
+@Slf4j
 public abstract class GameWebSocket {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private static final ConcurrentHashMap<ChannelId,Session> map = new ConcurrentHashMap<>();
 
@@ -99,12 +100,12 @@ public abstract class GameWebSocket {
 
         map.remove(session.id());
 
-        logger.info("close client:" + session.remoteAddress().toString());
+        log.info("close client:" + session.remoteAddress().toString());
     }
 
     @OnError
     public void onError(Session session, Throwable throwable) {
-        logger.error("close error:" + session.remoteAddress().toString(), throwable);
+        log.error("close error:" + session.remoteAddress().toString(), throwable);
     }
 
 

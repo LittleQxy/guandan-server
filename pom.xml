@@ -22,6 +22,9 @@
     <modules>
         <module>web</module>
         <module>core</module>
+        <module>card</module>
+        <module>common</module>
+        <module>hallserver</module>
     </modules>
 
     <dependencies>

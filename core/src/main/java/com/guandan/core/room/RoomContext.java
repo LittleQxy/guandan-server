@@ -26,8 +26,11 @@ import java.util.Optional;
 @Component
 @Scope(value = "prototype")
 @NoArgsConstructor
+/**
+ * 用于保存每个房间的上下文信息
+ */
 public abstract class RoomContext {
-    protected String roomNumber;
+    protected String roomNumber; //房间号
     protected int playerUpLimit;
     protected int playerLowerlimit;
     protected RedisTemplate redisTemplate;

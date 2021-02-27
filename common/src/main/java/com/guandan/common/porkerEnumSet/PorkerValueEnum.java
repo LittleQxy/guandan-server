@@ -1,5 +1,14 @@
 package com.guandan.common.porkerEnumSet;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
+/**
+ * 带有花色的扑克面值
+ */
 public enum PorkerValueEnum {
 	Porker_Heart_2(1, "红桃2"),
 	Porker_Diamond_2(2, "方块2"),
@@ -165,22 +174,14 @@ public enum PorkerValueEnum {
 	
     private final int value;
     private final String desc;
-    
-    
-    private PorkerValueEnum(int code, String desc) {
-        this.value = code;
-        this.desc = desc;
-    }
-    
-    public String getDesc() {
-        return desc;
-    }
-    
-   public final int getNumber() { 
-	   return value; 
-	}
-   
-   public static int getCardColorByPorkerValue(int nPorkerValue){
+
+
+	/**
+	 * 获取 poker 的花色
+	 * @param nPorkerValue
+	 * @return
+	 */
+	public static int getCardColorByPorkerValue(int nPorkerValue){
 		if(PorkerValueEnum.PORKER_SMALL_JOKER_VALUE == nPorkerValue){
 			return CardColorEnum.CARD_COLOR_NULL;
 		}
@@ -196,7 +197,12 @@ public enum PorkerValueEnum {
 		
 		return nCardColor;
 	}
-	
+
+	/**
+	 * 根据 poker 的面值获取真实值
+	 * @param nPorkerValue
+	 * @return
+	 */
 	public static int getFaceValueByPorkerValueOf(int nPorkerValue){
 		if(PorkerValueEnum.PORKER_SMALL_JOKER_VALUE == nPorkerValue){
 			   return FaceValueEnum.FACE_VALUE_SMALL_JORKER;
@@ -206,12 +212,16 @@ public enum PorkerValueEnum {
 			   return FaceValueEnum.FACE_VALUE_BIG_JORKER;
 		   }
 		   
-		   if((nPorkerValue < PorkerValueEnum.PORKER_MIN_TYPE_VALUE) || (nPorkerValue > PorkerValueEnum.PORKER_MAX_TYPE_VALUE)){
+		   if((nPorkerValue < PorkerValueEnum.PORKER_MIN_TYPE_VALUE)
+				   || (nPorkerValue > PorkerValueEnum.PORKER_MAX_TYPE_VALUE)){
 			   return FaceValueEnum.FACE_VALUE_NULL;
 		   }
 		   
 
-		   if((PorkerValueEnum.PORKER_HEART_A_VALUE == nPorkerValue) || (PorkerValueEnum.PORKER_DIAMOND_A_VALUE == nPorkerValue) || (PorkerValueEnum.PORKER_SPADE_A_VALUE == nPorkerValue) || (PorkerValueEnum.PORKER_CLUB_A_VALUE == nPorkerValue)){
+		   if((PorkerValueEnum.PORKER_HEART_A_VALUE == nPorkerValue)
+				   || (PorkerValueEnum.PORKER_DIAMOND_A_VALUE == nPorkerValue)
+				   || (PorkerValueEnum.PORKER_SPADE_A_VALUE == nPorkerValue)
+				   || (PorkerValueEnum.PORKER_CLUB_A_VALUE == nPorkerValue)){
 			   return FaceValueEnum.FACE_VALUE_A_VALUE;
 		   }
 		   
@@ -227,7 +237,12 @@ public enum PorkerValueEnum {
 	public static int getMaxPorkerValue(){
 		return PORKER_MAX_TYPE_VALUE;
 	}
-	
+
+	/**
+	 * 根据 poker value获取花色
+	 * @param nPorkerValue
+	 * @return
+	 */
 	public static String getColorByPorkValue(int nPorkerValue){
 		int nColorValue = PorkerValueEnum.getCardColorByPorkerValue(nPorkerValue);
 		String strColorInfo = " ";

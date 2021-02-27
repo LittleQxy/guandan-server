@@ -21,6 +21,9 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Data
 @Component
+/**
+ * 基础的房间管理类，主要是用于创建游戏房间之后，房间内状态的流转
+ */
 public abstract class RoomManager {
     protected ConcurrentHashMap<String, ActorRef> map = new ConcurrentHashMap<>();
     Map<Integer, RoomAction> cacheMap = new HashMap<>();
